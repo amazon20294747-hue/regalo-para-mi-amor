@@ -514,7 +514,7 @@ Te elegiría una y mil veces. Feliz cumpleaños, preciosa. 💗</div>
   font-family: Arial, sans-serif;
   text-align: center;
 ">
-  <div style="font-size: 30px;">💗 🎶 💗</div>
+  <div style="font-size: 32px;">💗 🎶 💗</div>
   <h2 style="margin: 8px 0;">Nuestra música</h2>
   <p>Una canción para ti, mi amor ❤️</p>
 
@@ -523,50 +523,67 @@ Te elegiría una y mil veces. Feliz cumpleaños, preciosa. 💗</div>
   <select id="elegirCancion" style="
     display: block;
     width: 100%;
+    box-sizing: border-box;
     margin: 12px 0;
     padding: 12px;
     border: 1px solid #e8a2bd;
     border-radius: 12px;
     background: white;
     color: #84264d;
+    font-size: 15px;
   ">
-    <option value="0">Piano romántico</option>
+    <option value="0">Piano romántico 💕</option>
     <option value="1">Emociones ❤️</option>
+    <option value="2">Mi tercera canción 💖</option>
   </select>
 
-  <audio id="miMusica" controls loop preload="none"
-    style="width: 100%;">
+  <audio
+    id="miMusica"
+    controls
+    loop
+    preload="none"
+    style="width: 100%;"
+  >
     <source
       src="https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/atlasaudio-love-piano-520077.mp3"
-      type="audio/mpeg">
+      type="audio/mpeg"
+    >
     Tu navegador no puede reproducir este audio.
   </audio>
 
-  <p style="font-size: 13px;">Hecha con amor, para ti 💕</p>
+  <p style="font-size: 13px; margin-bottom: 0;">
+    Hecha con amor, para ti 💕
+  </p>
 </section>
 
 <script>
 (function () {
   const canciones = [
     "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/atlasaudio-love-piano-520077.mp3",
-    "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/%40Hades66mmnf%20-%20EMOCIONES%20(OFFICIAL%20VIDEO).mp3"
+
+    "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/%40Hades66mmnf%20-%20EMOCIONES%20(OFFICIAL%20VIDEO).mp3",
+
+    "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/Primaveral.mp3"
   ];
 
   const reproductor = document.getElementById("miMusica");
   const selector = document.getElementById("elegirCancion");
 
+  if (!reproductor || !selector) return;
+
   selector.addEventListener("change", function () {
     const estabaSonando = !reproductor.paused;
+
     reproductor.src = canciones[Number(selector.value)];
     reproductor.load();
 
     if (estabaSonando) {
-      reproductor.play().catch(() => {});
+      reproductor.play().catch(function () {});
     }
   });
 })();
 </script>
-  
+
 
   
   </body>
