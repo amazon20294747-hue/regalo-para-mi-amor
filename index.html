@@ -500,12 +500,48 @@ Te elegiría una y mil veces. Feliz cumpleaños, preciosa. 💗</div>
     })();
   </script>
 
-  <div style="position:fixed;bottom:20px;right:20px;z-index:99999;background:#fff0f5;padding:12px;border-radius:20px;box-shadow:0 3px 12px #999;">
-    <audio id="miMusica" controls loop preload="metadata">
-      <source src="https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/atlasaudio-love-piano-520077.mp3" type="audio/mpeg">
-      Tu navegador no puede reproducir este audio.
-    </audio>
+  
+<div id="reproductorAmor" style="position:fixed;bottom:16px;right:12px;z-index:99999;width:min(320px,calc(100vw - 24px));box-sizing:border-box;background:linear-gradient(135deg,#fff0f6,#ffe0ec);border:1px solid #f4b8ce;border-radius:22px;padding:16px;box-shadow:0 6px 24px #a83e6540;color:#84264d;font-family:Arial,sans-serif;">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+    <div style="font-size:30px;">💗</div>
+    <div>
+      <div style="font-size:17px;font-weight:bold;">Nuestra música</div>
+      <div style="font-size:12px;">Melodías para mi amor</div>
+    </div>
   </div>
+
+  <label for="elegirCancion" style="display:block;font-size:13px;margin-bottom:6px;">🎵 Elige una canción</label>
+  <select id="elegirCancion" style="width:100%;box-sizing:border-box;padding:10px;border:1px solid #e8a2bd;border-radius:12px;background:white;color:#84264d;font-size:14px;margin-bottom:12px;">
+    <option value="0">Piano romántico</option>
+    <option value="1">Emociones ❤️</option>
+  </select>
+
+  <audio id="miMusica" controls loop preload="none" style="width:100%;height:40px;">
+    <source src="https://raw.githubusercontent.com/amazon202294747-hue/regalo-para-mi-amor/main/atlasaudio-love-piano-520077.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+(function () {
+  const canciones = [
+    "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/atlasaudio-love-piano-520077.mp3",
+    "https://raw.githubusercontent.com/amazon20294747-hue/regalo-para-mi-amor/main/%40Hades66mmnf%20-%20EMOCIONES%20(OFFICIAL%20VIDEO).mp3"
+  ];
+
+  const reproductor = document.getElementById("miMusica");
+  const selector = document.getElementById("elegirCancion");
+
+  selector.addEventListener("change", function () {
+    const estabaSonando = !reproductor.paused;
+    reproductor.src = canciones[Number(selector.value)];
+    reproductor.load();
+
+    if (estabaSonando) {
+      reproductor.play().catch(() => {});
+    }
+  });
+})();
+</script>
   
   </body>
 </html>
