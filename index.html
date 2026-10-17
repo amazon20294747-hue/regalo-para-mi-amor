@@ -210,6 +210,100 @@
           <div class="orb"></div><span class="float-heart h1">♥</span><span class="float-heart h2">✦</span><span class="float-heart h3">♥</span><span class="float-heart h4">✧</span>
           <div class="gift"><div class="bow"></div><span class="gift-heart">♥</span></div>
         </div>
+      
+
+
+
+        
+<!-- Cuenta regresiva compacta 💗 -->
+<div id="cuentaRegresivaAmor" style="
+  width: 100%;
+  box-sizing: border-box;
+  margin: 28px 0 0;
+  padding: 18px 12px;
+  border-top: 1px solid #f5d5e1;
+  text-align: center;
+  color: #8f3157;
+  font-family: Arial, sans-serif;
+">
+  <p style="
+    margin: 0 0 6px;
+    color: #b84d76;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+  ">
+    💗 FALTA POQUITO PARA TU CUMPLEAÑOS 💗
+  </p>
+
+  <div style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 15px;
+  ">
+    <span><strong id="amorDias">0</strong> días</span>
+    <span>·</span>
+    <span><strong id="amorHoras">00</strong> h</span>
+    <span>·</span>
+    <span><strong id="amorMinutos">00</strong> min</span>
+    <span>·</span>
+    <span><strong id="amorSegundos">00</strong> s</span>
+  </div>
+
+  <p id="mensajeCuentaAmor" style="
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #b84d76;
+  ">
+    Cada segundo cuenta, mi amor ❤️
+  </p>
+</div>
+
+<script>
+(function () {
+  const dias = document.getElementById("amorDias");
+  const horas = document.getElementById("amorHoras");
+  const minutos = document.getElementById("amorMinutos");
+  const segundos = document.getElementById("amorSegundos");
+  const mensaje = document.getElementById("mensajeCuentaAmor");
+
+  if (!dias || !horas || !minutos || !segundos || !mensaje) return;
+
+  function actualizarCuenta() {
+    const ahora = new Date();
+    let cumple = new Date(ahora.getFullYear(), 1, 19, 0, 0, 0);
+
+    if (ahora >= cumple) {
+      cumple = new Date(ahora.getFullYear() + 1, 1, 19, 0, 0, 0);
+    }
+
+    const diferencia = Math.max(0, cumple.getTime() - ahora.getTime());
+    const total = Math.floor(diferencia / 1000);
+
+    dias.textContent = Math.floor(total / 86400);
+    horas.textContent = String(Math.floor((total % 86400) / 3600)).padStart(2, "0");
+    minutos.textContent = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
+    segundos.textContent = String(total % 60).padStart(2, "0");
+
+    if (diferencia === 0) {
+      mensaje.textContent = "¡Feliz cumpleaños, mi amor! 🎂❤️";
+    }
+  }
+
+  actualizarCuenta();
+  setInterval(actualizarCuenta, 1000);
+})();
+</script>
+<!-- Fin de la cuenta regresiva -->
+
+      
+      
+      
+      
+      
       </section>
 
 
