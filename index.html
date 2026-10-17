@@ -168,6 +168,16 @@
       .hero { grid-template-columns:1fr; gap:0; padding:26px 22px 20px; border-radius:26px; }
       .hero h1 { max-width:560px; }
       .art { min-height:205px; margin-top:4px; }
+      .gift {
+  width: 150px;
+  height: 132px;
+}
+
+.gift::after {
+  height: 150px;
+  width: 22px;
+  left: calc(50% - 11px);
+}
       .gift { transform:scale(.82) rotate(-5deg); }
       .orb { width:230px; }
       .theme-grid { grid-template-columns:repeat(2,1fr); }
