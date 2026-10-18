@@ -203,8 +203,10 @@
 
   <div class="page" id="app">
     <header class="topbar">
-      <div class="brand"><span class="brand-mark">♡</span><span>Un regalo para mi amor</span></div>
-      <button class="icon-btn" id="customizeBtn" type="button">✎ Personalizar</button>
+      <div class="brand"><span class="brand-mark">♡</span><span>Un regalo para mi amor</span></<div style="display:flex;align-items:center;gap:8px">
+  <button id="abrirMusica" type="button" aria-label="Abrir canciones" style="background:linear-gradient(135deg,#ff8fba,#e65f91);color:white;border:0;border-radius:50%;width:44px;height:44px;font-size:22px;box-shadow:0 5px 14px #e65f9140;cursor:pointer">♫</button>
+  <button class="icon-btn" id="customizeBtn" type="button">✎ Personalizar</button>
+</div>
     </header>
 
     <main>
@@ -624,7 +626,15 @@ Te elegiría una y mil veces. Feliz cumpleaños, preciosa. 💗</div>
       reproductor.play().catch(function () {});
     }
   });
-})();
+const botonMusica = document.getElementById("abrirMusica");
+const reproductorMusica = document.getElementById("reproductorAmor");
+
+if (botonMusica && reproductorMusica) {
+  botonMusica.addEventListener("click", function () {
+    reproductorMusica.style.display =
+      reproductorMusica.style.display === "none" ? "block" : "none";
+  });
+}})();
 </script>
 
 
